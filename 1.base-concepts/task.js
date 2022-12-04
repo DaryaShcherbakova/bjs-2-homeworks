@@ -5,15 +5,12 @@ function solveEquation(a, b, c) {
   let rootSecond;
   let d = Math.pow(b, 2) - 4 * a * c;
 
-  if (d  < 0) {
-    console.log("Корней нет");
-  }
-  else if (d === 0){
+   if (d === 0){
     rootFirst = -b / (2 * a);
     arr.push(rootFirst);
     console.log(arr);
   }
-  else{
+  else if (d > 0) {
     rootFirst = (-b + Math.sqrt(d) ) / (2 * a);
     rootSecond = (-b - Math.sqrt(d) ) / (2 * a);
     arr.push(rootFirst);
@@ -43,7 +40,7 @@ function calculateTotalMortgage(percent, contribution, amount, countMonths) {
 
   monthPercent = (percent / 100) / 12;
   bodyCredit = amount - contribution;
-  monthPayment = bodyCredit * (monthPercent + (monthPercent / ((Math.pow((1 + pmonthPercent), countMonths)) - 1)));
+  monthPayment = bodyCredit * (monthPercent + (monthPercent / ((Math.pow((1 + monthPercent), countMonths)) - 1)));
   sumAmount = parseFloat((monthPayment * countMonths).toFixed(2));
 
   return sumAmount;
